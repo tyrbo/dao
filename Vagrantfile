@@ -17,6 +17,7 @@ Vagrant.configure("2") do |config|
 
   # If you want any special yum repositories, drop them in repo_files
   config.vm.synced_folder "repo_files", "/home/vagrant/repo_files", create:true
+  config.vm.provision "shell", inline: "yum -y install http://mirror.pnl.gov/epel/6/i386/epel-release-6-8.noarch.rpm"
   config.vm.provision "shell", inline: "cp ~vagrant/repo_files/*.repo /etc/yum.repos.d"
 
   # Any extra scripts you want to run drop them here/invoke below
