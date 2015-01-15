@@ -23,5 +23,6 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--cpus", "#{cpus}"]
     vb.customize ["modifyvm", :id, "--memory", "#{memory}"]
     vb.customize ["modifyvm", :id, "--autostart-enabled", "#{autostart}"]
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
 end
