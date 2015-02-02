@@ -1,0 +1,39 @@
+#!/bin/bash
+set -e
+
+# Save some folder locations for easy access
+CURRENT_DIR="$(pwd)"
+SCRIPT_HOME="$(cd "$(dirname "$(readlink `which dev`)")" && pwd)"
+
+# Check for existence of a fig.yml file
+if [ ! -e fig.yml ] ; then
+  echo "Couldn't find a fig.yml file."
+  exit 1
+fi
+
+# Parse commands
+case "$1" in
+  up)
+    echo "Starting Docker host... This may take a while."
+    cd $SCRIPT_HOME/..
+    vagrant up
+
+    echo "Starting Fig services... This may take a while."
+    cd $CURRENT_DIR
+    fig pull
+    fig build
+    fig up -d
+    ;;
+
+  down)
+    echo "Stopping Fig services..."
+    cd $CURRENT_DIR
+    fig stop
+    ;;
+
+  sleep)
+    echo "Putting Vagrant to sleep..."
+    cd $SCRIPT_HOME/..
+    vagrant suspend
+    ;;
+esac

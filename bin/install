@@ -1,0 +1,36 @@
+#!/bin/bash
+set -e
+
+is_program () {
+  hash $1 &> /dev/null;
+}
+
+# Install homebrew if not installed
+if ! is_program 'brew'; then
+  echo "Installing homebrew..."
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+# Update homebrew recipes
+echo "Updating homebrew recipes..."
+brew update
+
+# Install homebrew cask
+brew install caskroom/cask/brew-cask
+
+# Install vagrant and virtualbox
+echo "Installing virtualbox and vagrant..."
+brew cask install virtualbox
+brew cask install vagrant
+
+# Install git
+echo "Installing git..."
+brew install git
+
+# Check out the repo
+cd ~
+git checkout git@code.livingsocial.net:jchambers/docker_cent6.git .bootstrap
+ln -s ~/.bootstrap/bin/dev /usr/local/bin/dev
+
+# How to handle DOCKER_HOST and such...
+
