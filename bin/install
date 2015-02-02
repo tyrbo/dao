@@ -1,12 +1,12 @@
 #!/bin/bash
 set -e
 
-is_program () {
-  hash $1 &> /dev/null;
+not_installed () {
+  ! hash $1 &> /dev/null;
 }
 
 # Install homebrew if not installed
-if ! is_program 'brew'; then
+if not_installed 'brew'; then
   echo "Installing homebrew..."
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
@@ -19,13 +19,34 @@ brew update
 brew install caskroom/cask/brew-cask
 
 # Install vagrant and virtualbox
-echo "Installing virtualbox and vagrant..."
-brew cask install virtualbox
-brew cask install vagrant
+if not_installed 'VirtualBox'; then
+  echo "Installing virtualbox..."
+  brew cask install virtualbox
+fi
+
+if not_installed 'vagrant'; then
+  echo "Installing vagrant..."
+  brew cask install vagrant
+fi
 
 # Install git
-echo "Installing git..."
-brew install git
+if not_installed 'git'; then
+  echo "Installing git..."
+  brew install git
+fi
+
+# Install docker and fig
+if not_installed 'docker'; then
+  echo "Installing docker..."
+  cd $( brew --prefix )
+  git checkout 21e59c6 /usr/local/Library/Formula/docker.rb
+  brew install docker
+fi
+
+if not_installed 'fig'; then
+  echo "Installing fig..."
+  brew install fig
+fi
 
 # Check out the repo
 cd ~
@@ -33,4 +54,13 @@ git clone git@code.livingsocial.net:jchambers/docker_cent6.git .bootstrap
 ln -s ~/.bootstrap/bin/dev /usr/local/bin/dev
 
 # How to handle DOCKER_HOST and such...
-
+echo
+echo "Everything upon which you depend has already been installed."
+echo "To utilize your tools, you will need to update your configuration."
+echo "Please set the following value in whichever config file is appropriate for your current \$SHELL"
+echo
+echo "export DOCKER_HOST=tcp://localhost:2376"
+echo
+echo "For bash, this is usually ~/.bash_profile, for zshell ~/.zshrc, etc."
+echo "Refer to your documentation if you are uncertain about where to place your value."
+echo
