@@ -16,6 +16,7 @@ Vagrant.configure("2") do |config|
   # Any extra scripts you want to run drop them here/invoke below
   config.vm.synced_folder "scripts", "/home/vagrant/scripts", create:true
   config.vm.synced_folder "/Users", "/Users"
+
   config.vm.provision "shell", path: "scripts/install.sh"
 
   config.vm.provider :virtualbox do |vb|
