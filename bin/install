@@ -50,7 +50,7 @@ fi
 
 # Check out the repo
 cd ~
-git clone git@github.com:tyrbo/docker_cent6.git .bootstrap
+git clone git@github.com:tyrbo/dao .bootstrap
 ln -s ~/.bootstrap/bin/dev /usr/local/bin/dev
 
 # How to handle DOCKER_HOST and such...
