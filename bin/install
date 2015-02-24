@@ -29,6 +29,8 @@ if not_installed 'vagrant'; then
   brew cask install vagrant
 fi
 
+vagrant plugin install vagrant-reload
+
 # Install git
 if not_installed 'git'; then
   echo "Installing git..."
@@ -36,11 +38,9 @@ if not_installed 'git'; then
 fi
 
 # Install docker and fig
-if not_installed 'docker'; then
-  echo "Installing docker..."
-  cd $( brew --prefix )
-  git checkout 21e59c6 /usr/local/Library/Formula/docker.rb
-  brew install docker
+if not_installed 'boot2docker'; then
+  echo "Installing boot2docker and docker..."
+  brew install boot2docker
 fi
 
 if not_installed 'fig'; then
