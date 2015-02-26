@@ -18,6 +18,7 @@ describe Dao::HTTPServer do
   describe '#start' do
     it 'creates a new thread' do
       http = Dao::HTTPServer.new(6000)
+
       http.start
 
       expect(http.thread).to be_a Thread
@@ -28,11 +29,11 @@ describe Dao::HTTPServer do
   describe '#stop' do
     it 'exits the thread' do
       http = Dao::HTTPServer.new(6000)
+
       http.start
       http.stop
+      http.thread.join
 
-      # I hate this, but it seems necessary to make sure the thread gets the message consistently.
-      sleep(0.01)
       expect(http.thread.alive?).to be false
     end
   end
