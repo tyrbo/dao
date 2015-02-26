@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dockermon (0.0.1)
+    dao (0.0.1)
       docker-api (~> 1.17)
       rack (~> 1.6)
       rubydns (~> 1.0)
@@ -51,6 +51,6 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.7)
-  dockermon!
+  dao!
   rake (~> 10.0)
   rspec (~> 3.2)
