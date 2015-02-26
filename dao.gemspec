@@ -1,14 +1,14 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'dockermon/version'
+require 'dao/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "dockermon"
-  spec.version       = Dockermon::VERSION
+  spec.name          = "dao"
+  spec.version       = Dao::VERSION
   spec.authors       = ["Jonmichael Chambers"]
   spec.email         = ["jonmichael.chambers@livingsocial.com"]
-  spec.summary       = %q{Dockermon is a project meant to watch for web applications running in Docker containers, which are made available on .dev domain names, similar to how pow functions for Rails applications.}
+  spec.summary       = %q{Dao is a project meant to watch for web applications running in Docker containers, which are made available on .dev domain names, similar to how pow functions for Rails applications.}
   spec.description   = %q{}
   spec.homepage      = ""
   spec.license       = "MIT"

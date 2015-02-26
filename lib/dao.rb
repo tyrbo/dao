@@ -1,6 +1,6 @@
-require "dockermon/version"
+require "dao/version"
 require "dns_server"
 
-module Dockermon
+module Dao
   # Your code goes here...
 end

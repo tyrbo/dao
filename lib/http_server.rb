@@ -2,7 +2,7 @@ require 'rack'
 require 'thread'
 require './forwarder'
 
-module Dockermon
+module Dao
   class HTTPServer
     attr_reader :port, :thread
 
@@ -11,7 +11,7 @@ module Dockermon
     end
 
     def start
-      @thread = Thread.new { Rack::Handler::WEBrick.run Dockermon::Forwarder.new, Port: port }
+      @thread = Thread.new { Rack::Handler::WEBrick.run Dao::Forwarder.new, Port: port }
     end
 
     def stop

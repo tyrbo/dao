@@ -1,6 +1,6 @@
 require 'rubydns'
 
-module Dockermon
+module Dao
   class DNSServer
     attr_reader :port, :interfaces
 
