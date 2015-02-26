@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.2"
+  spec.add_development_dependency "pry"
   spec.add_dependency "rubydns", "~> 1.0"
   spec.add_dependency "docker-api", "~> 1.17"
   spec.add_dependency "rack", "~> 1.6"

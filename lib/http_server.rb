@@ -1,6 +1,6 @@
 require 'rack'
 require 'thread'
-require './forwarder'
+require 'forwarder'
 
 module Dao
   class HTTPServer
