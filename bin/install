@@ -29,8 +29,6 @@ if not_installed 'vagrant'; then
   brew cask install vagrant
 fi
 
-vagrant plugin install vagrant-reload
-
 # Install git
 if not_installed 'git'; then
   echo "Installing git..."

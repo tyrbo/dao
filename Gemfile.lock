@@ -1,0 +1,56 @@
+PATH
+  remote: .
+  specs:
+    dockermon (0.0.1)
+      docker-api (~> 1.17)
+      rack (~> 1.6)
+      rubydns (~> 1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    archive-tar-minitar (0.5.2)
+    celluloid (0.16.0)
+      timers (~> 4.0.0)
+    celluloid-io (0.16.2)
+      celluloid (>= 0.16.0)
+      nio4r (>= 1.1.0)
+    diff-lcs (1.2.5)
+    docker-api (1.19.0)
+      archive-tar-minitar
+      excon (>= 0.38.0)
+      json
+    excon (0.44.2)
+    hitimes (1.2.2)
+    json (1.8.2)
+    nio4r (1.1.0)
+    rack (1.6.0)
+    rake (10.4.2)
+    rspec (3.2.0)
+      rspec-core (~> 3.2.0)
+      rspec-expectations (~> 3.2.0)
+      rspec-mocks (~> 3.2.0)
+    rspec-core (3.2.0)
+      rspec-support (~> 3.2.0)
+    rspec-expectations (3.2.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-mocks (3.2.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-support (3.2.1)
+    rubydns (1.0.1)
+      celluloid (~> 0.16.0)
+      celluloid-io (~> 0.16.2)
+      timers (~> 4.0.1)
+    timers (4.0.1)
+      hitimes
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.7)
+  dockermon!
+  rake (~> 10.0)
+  rspec (~> 3.2)
