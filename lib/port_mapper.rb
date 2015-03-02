@@ -34,10 +34,8 @@ module Dao
       def get_addr_for(req)
         name = req.host.split('.')[0]
         port = req.port
-
-        puts "Checking port: #{port.inspect} and name: #{name.inspect}"
-        puts "Mappings: #{@mappings.inspect}"
         priv_port = @mappings[port].detect { |x| x[:name] == name }[:public_port]
+
         "192.168.59.103:#{priv_port}"
       end
     end
