@@ -1,7 +1,11 @@
+require 'rack-proxy'
+
 module Dao
-  class Forwarder
-    def call(env)
-      [200, {"Content-Type" => "text/html"}, ["Hello Rack!"]]
+  class Forwarder < Rack::Proxy
+    def rewrite_env(env)
+      req = Rack::Request.new(env)
+      env['HTTP_HOST'] = PortMapper.get_addr_for(req)
+      env
     end
   end
 end

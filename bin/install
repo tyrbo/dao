@@ -52,11 +52,9 @@ git clone git@github.com:tyrbo/dao .bootstrap
 
 # How to handle DOCKER_HOST and such...
 echo
-echo "Everything upon which you depend has already been installed."
-echo "To utilize your tools, you will need to update your configuration."
-echo "Please set the following value in whichever config file is appropriate for your current \$SHELL"
+echo "In the next few lines, you should see mention of writing boot2docker cert files."
 echo
-echo "export DOCKER_HOST=tcp://localhost:2376"
+boot2docker shellinit
 echo
 echo "For bash, this is usually ~/.bash_profile, for zshell ~/.zshrc, etc."
 echo "Refer to your documentation if you are uncertain about where to place your value."

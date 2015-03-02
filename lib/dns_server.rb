@@ -4,7 +4,7 @@ module Dao
   class DNSServer
     attr_reader :port, :interfaces
 
-    def initialize(port = 5300)
+    def initialize(port = 53)
       @port = port
       @interfaces = [
         [:udp, '127.0.0.1', port],

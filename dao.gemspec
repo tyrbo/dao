@@ -25,4 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rubydns", "~> 1.0"
   spec.add_dependency "docker-api", "~> 1.17"
   spec.add_dependency "rack", "~> 1.6"
+  #spec.add_dependency "rack-proxy", "~> 0.5"
 end

@@ -12,6 +12,7 @@ module Dao
 
     def start
       @thread = Thread.new { Rack::Handler::WEBrick.run Dao::Forwarder.new, Port: port }
+      self
     end
 
     def stop
