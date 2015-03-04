@@ -16,7 +16,9 @@ echo "Updating homebrew recipes..."
 brew update
 
 # Install homebrew cask
-brew install caskroom/cask/brew-cask
+if not_installed 'brew-cask'; then
+  brew install caskroom/cask/brew-cask
+fi
 
 # Install vagrant and virtualbox
 if not_installed 'VirtualBox'; then
@@ -43,6 +45,10 @@ fi
 
 # Set profile
 if [ ! -f $HOME/.boot2docker/profile ]; then
+  if [ ! -d $HOME/.boot2docker ]; then
+    mkdir $HOME/.boot2docker
+  fi
+
   echo 'ISOURL="https://api.github.com/repos/tyrbo/dao-boot2docker/releases"' >> $HOME/.boot2docker/profile
 else
   echo
@@ -55,7 +61,6 @@ fi
 boot2docker upgrade
 boot2docker init
 boot2docker up
-$(boot2docker shellinit)
 
 if not_installed 'fig'; then
   echo "Installing fig..."
