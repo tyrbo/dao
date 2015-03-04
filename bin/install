@@ -43,11 +43,12 @@ fi
 
 # Set profile
 if [ ! -f $HOME/.boot2docker/profile ]; then
-  echo 'ISOURL = "https://api.github.com/repos/tyrbo/dao-boot2docker/releases"' >> $HOME/.boot2docker/profile
+  echo 'ISOURL="https://api.github.com/repos/tyrbo/dao-boot2docker/releases"' >> $HOME/.boot2docker/profile
 else
+  echo
   echo "It seems you already have a boot2docker profile. Please add the following line to the file:"
   echo
-  echo 'ISOURL = "https://api.github.com/repos/tyrbo/dao-boot2docker/releases"'
+  echo 'ISOURL="https://api.github.com/repos/tyrbo/dao-boot2docker/releases"'
   echo
 fi
 
@@ -62,7 +63,9 @@ fi
 
 # Check out the repo
 cd ~
-git clone git@github.com:tyrbo/dao .bootstrap
+if [ ! -f $HOME/.dao-bootstrap ]; then
+  git clone git@github.com:tyrbo/dao .dao-bootstrap
+fi
 
 # How to handle DOCKER_HOST and such...
 echo
