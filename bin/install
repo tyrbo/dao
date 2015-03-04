@@ -51,6 +51,7 @@ else
   echo
 fi
 
+boot2docker upgrade
 boot2docker init
 boot2docker up
 
@@ -65,11 +66,10 @@ git clone git@github.com:tyrbo/dao .bootstrap
 
 # How to handle DOCKER_HOST and such...
 echo
-echo "In the next few lines, you should see mention of writing boot2docker cert files."
-echo "Following, you should see several lines used to set environment variables."
-echo "For ease of use, you should add those lines to your profile."
+echo "For ease of use, you should add the following line to your profile."
 echo
-boot2docker shellinit
+echo '$(boot2docker shellinit)'
+$(boot2docker shellinit)
 echo
 echo "For bash, this is usually ~/.bash_profile, for zshell ~/.zshrc, etc."
 echo "Refer to your documentation if you are uncertain about where to place your value."
