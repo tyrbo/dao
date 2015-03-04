@@ -41,6 +41,20 @@ if not_installed 'boot2docker'; then
   brew install boot2docker
 fi
 
+# Set profile
+if [ ! -f $HOME/.boot2docker/profile ]; then
+  mkdir $HOME/.boot2docker
+  echo 'ISOURL = "https://api.github.com/repos/tyrbo/dao-boot2docker/releases"' >> $HOME/.boot2docker/profile
+else
+  echo "It seems you already have a boot2docker profile. Please add the following line to the file:"
+  echo
+  echo 'ISOURL = "https://api.github.com/repos/tyrbo/dao-boot2docker/releases"'
+  echo
+fi
+
+boot2docker init
+boot2docker up
+
 if not_installed 'fig'; then
   echo "Installing fig..."
   brew install fig
@@ -53,6 +67,8 @@ git clone git@github.com:tyrbo/dao .bootstrap
 # How to handle DOCKER_HOST and such...
 echo
 echo "In the next few lines, you should see mention of writing boot2docker cert files."
+echo "Following, you should see several lines used to set environment variables."
+echo "For ease of use, you should add those lines to your profile."
 echo
 boot2docker shellinit
 echo
