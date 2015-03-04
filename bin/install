@@ -55,6 +55,7 @@ fi
 boot2docker upgrade
 boot2docker init
 boot2docker up
+$(boot2docker shellinit)
 
 if not_installed 'fig'; then
   echo "Installing fig..."
@@ -71,8 +72,7 @@ fi
 echo
 echo "For ease of use, you should add the following line to your profile."
 echo
-echo '$(boot2docker shellinit)'
-$(boot2docker shellinit)
+echo "\$(boot2docker shellinit)"
 echo
 echo "For bash, this is usually ~/.bash_profile, for zshell ~/.zshrc, etc."
 echo "Refer to your documentation if you are uncertain about where to place your value."
