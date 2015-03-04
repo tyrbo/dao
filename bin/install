@@ -43,7 +43,6 @@ fi
 
 # Set profile
 if [ ! -f $HOME/.boot2docker/profile ]; then
-  mkdir $HOME/.boot2docker
   echo 'ISOURL = "https://api.github.com/repos/tyrbo/dao-boot2docker/releases"' >> $HOME/.boot2docker/profile
 else
   echo "It seems you already have a boot2docker profile. Please add the following line to the file:"
