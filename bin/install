@@ -44,11 +44,11 @@ if not_installed 'boot2docker'; then
 fi
 
 # Set profile
-if [ ! -f $HOME/.boot2docker/profile ]; then
-  if [ ! -d $HOME/.boot2docker ]; then
-    mkdir $HOME/.boot2docker
-  fi
+if [ ! -d $HOME/.boot2docker ]; then
+  mkdir $HOME/.boot2docker
+fi
 
+if [ ! -f $HOME/.boot2docker/profile ]; then
   echo 'ISOURL="https://api.github.com/repos/tyrbo/dao-boot2docker/releases"' >> $HOME/.boot2docker/profile
 else
   echo
