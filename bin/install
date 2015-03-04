@@ -64,7 +64,7 @@ fi
 
 # Check out the repo
 cd ~
-if [ ! -f $HOME/.dao-bootstrap ]; then
+if [ ! -d $HOME/.dao-bootstrap ]; then
   git clone git@github.com:tyrbo/dao .dao-bootstrap
 fi
 
