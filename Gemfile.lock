@@ -4,13 +4,8 @@ PATH
     dao (0.0.1)
       docker-api (~> 1.17)
       rack (~> 1.6)
+      rack-proxy (~> 0.5)
       rubydns (~> 1.0)
-
-PATH
-  remote: /Users/Jon/Projects/rack-proxy
-  specs:
-    rack-proxy (0.5.17)
-      rack
 
 GEM
   remote: https://rubygems.org/
@@ -37,6 +32,8 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     rack (1.6.0)
+    rack-proxy (0.5.17)
+      rack
     rake (10.4.2)
     rspec (3.2.0)
       rspec-core (~> 3.2.0)
@@ -66,6 +63,5 @@ DEPENDENCIES
   bundler (~> 1.7)
   dao!
   pry
-  rack-proxy!
   rake (~> 10.0)
   rspec (~> 3.2)
