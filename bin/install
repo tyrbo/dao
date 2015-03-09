@@ -37,6 +37,25 @@ if not_installed 'git'; then
   brew install git
 fi
 
+# Install docker
+if not_installed 'docker'; then
+  echo "Installing docker..."
+  brew install docker
+fi
+
+# Install docker machine
+if not_installed 'docker-machine'; then
+  echo "Installing docker machine..."
+  curl -sL https://github.com/docker/machine/releases/download/v0.1.0/docker-machine_darwin-amd64 > /usr/local/bin/docker-machine
+  chmod a+x /usr/local/bin/docker-machine
+fi
+
+# Install docker compose
+if not_installed 'docker-compose'; then
+  echo "Installing docker compose..."
+  brew install --ignore-dependencies docker-compose
+fi
+
 ## Install docker and fig
 #if not_installed 'boot2docker'; then
 #  echo "Installing boot2docker and docker..."
@@ -74,11 +93,11 @@ if [ ! -d $HOME/.dao-bootstrap ]; then
 fi
 
 # How to handle DOCKER_HOST and such...
-echo
-echo "For ease of use, you should add the following line to your profile."
-echo
-echo "\$(boot2docker shellinit)"
-echo
-echo "For bash, this is usually ~/.bash_profile, for zshell ~/.zshrc, etc."
-echo "Refer to your documentation if you are uncertain about where to place your value."
-echo
+#echo
+#echo "For ease of use, you should add the following line to your profile."
+#echo
+#echo "\$(boot2docker shellinit)"
+#echo
+#echo "For bash, this is usually ~/.bash_profile, for zshell ~/.zshrc, etc."
+#echo "Refer to your documentation if you are uncertain about where to place your value."
+#echo
