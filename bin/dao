@@ -19,6 +19,18 @@ case "$1" in
     docker-machine stop ls-dev
     ;;
 
+  kill)
+    docker-machine kill ls-dev
+    ;;
+
+  rm)
+    docker-machine rm ls-dev
+    ;;
+
+  ssh)
+    docker-machine ssh ls-dev
+    ;;
+
   env)
     docker-machine env ls-dev
     ;;
