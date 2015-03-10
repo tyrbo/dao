@@ -10,7 +10,8 @@ case "$1" in
   create)
     docker-machine create --driver virtualbox ls-dev
     docker-machine ssh ls-dev sudo "sed -r \"s/EXTRA_ARGS='(.*?)'/EXTRA_ARGS='\1 --bip 10.100.200.1\/24'/\" /var/lib/boot2docker/profile > tmp && sudo mv tmp /var/lib/boot2docker/profile"
-    docker-machine ssh ls-dev sudo /etc/init.d/docker restart
+    docker-machine stop ls-dev
+    docker-machine start ls-dev
     ;;
 
   start)

@@ -56,41 +56,23 @@ if not_installed 'docker-compose'; then
   brew install --ignore-dependencies docker-compose
 fi
 
-## Install docker and fig
-#if not_installed 'boot2docker'; then
-#  echo "Installing boot2docker and docker..."
-#  brew install boot2docker
-#fi
-#
-## Set profile
-#if [ ! -d $HOME/.boot2docker ]; then
-#  mkdir $HOME/.boot2docker
-#fi
-#
-#if [ ! -f $HOME/.boot2docker/profile ]; then
-#  echo 'ISOURL="https://api.github.com/repos/tyrbo/dao-boot2docker/releases"' >> $HOME/.boot2docker/profile
-#else
-#  echo
-#  echo "It seems you already have a boot2docker profile. Please add the following line to the file:"
-#  echo
-#  echo 'ISOURL="https://api.github.com/repos/tyrbo/dao-boot2docker/releases"'
-#  echo
-#fi
-#
-#boot2docker upgrade
-#boot2docker init
-#boot2docker up
-#
-#if not_installed 'fig'; then
-#  echo "Installing fig..."
-#  brew install fig
-#fi
-
 # Check out the repo
 cd ~
-if [ ! -d $HOME/.dao-bootstrap ]; then
-  git clone git@github.com:tyrbo/dao .dao-bootstrap
+if [ ! -d $HOME/.dao ]; then
+  git clone git@github.com:tyrbo/dao .dao
 fi
+
+if not_installed 'dao'; then
+  ln -s ~/.dao/bin/dao /usr/local/bin/dao
+fi
+
+if not_installed 'daod'; then
+  ln -s ~/.dao/bin/daod /usr/local/bin/daod
+fi
+
+sudo rm -f /etc/resolver/dao ~/Library/LaunchAgents/cx.dao.daod.plist
+sudo ln -s ~/.dao/other/dao.firewall /etc/resolver/dao
+ln -s ~/.dao/other/cx.dao.daod.plist ~/Library/LaunchAgents/cx.dao.daod.plist
 
 # How to handle DOCKER_HOST and such...
 #echo
