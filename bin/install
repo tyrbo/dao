@@ -74,16 +74,6 @@ fi
 
 sudo rm -f /etc/resolver/dao ~/Library/LaunchAgents/cx.dao.daod.plist
 sudo ln -s ~/.dao/other/dao.firewall /etc/resolver/dao
-ln -s ~/.dao/other/cx.dao.daod.plist ~/Library/LaunchAgents/cx.dao.daod.plist
+#ln -s ~/.dao/other/cx.dao.daod.plist ~/Library/LaunchAgents/cx.dao.daod.plist
 
-launchctl load ~/Library/LaunchAgents/cx.dao.daod.plist
-
-# How to handle DOCKER_HOST and such...
-#echo
-#echo "For ease of use, you should add the following line to your profile."
-#echo
-#echo "\$(boot2docker shellinit)"
-#echo
-#echo "For bash, this is usually ~/.bash_profile, for zshell ~/.zshrc, etc."
-#echo "Refer to your documentation if you are uncertain about where to place your value."
-#echo
+#launchctl load ~/Library/LaunchAgents/cx.dao.daod.plist
