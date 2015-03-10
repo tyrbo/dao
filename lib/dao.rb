@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'bundler/setup'
+
 require 'dao/version'
 require 'dns_server'
 require 'port_mapper'
