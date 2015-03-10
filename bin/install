@@ -76,6 +76,8 @@ sudo rm -f /etc/resolver/dao ~/Library/LaunchAgents/cx.dao.daod.plist
 sudo ln -s ~/.dao/other/dao.firewall /etc/resolver/dao
 ln -s ~/.dao/other/cx.dao.daod.plist ~/Library/LaunchAgents/cx.dao.daod.plist
 
+launchctl load ~/Library/LaunchAgents/cx.dao.daod.plist
+
 # How to handle DOCKER_HOST and such...
 #echo
 #echo "For ease of use, you should add the following line to your profile."
