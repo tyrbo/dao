@@ -36,7 +36,7 @@ module Dao
         port = req.port
         priv_port = @mappings[port].detect { |x| x[:name] == name }[:public_port]
 
-        "192.168.59.103:#{priv_port}"
+        "@ip:#{priv_port}"
       end
     end
   end
