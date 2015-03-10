@@ -14,7 +14,7 @@ module Dao
 
     def start
       RubyDNS::run_server(asynchronous: true, listen: interfaces) do
-        match(/(.*?)\.dev$/, Resolv::DNS::Resource::IN::A) do |transaction|
+        match(/(.*?)\.dao$/, Resolv::DNS::Resource::IN::A) do |transaction|
           transaction.respond!('127.0.0.1')
         end
       end
