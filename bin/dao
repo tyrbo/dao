@@ -1,10 +1,6 @@
 #!/bin/bash
 set -e
 
-# Save some folder locations for easy access
-CURRENT_DIR="$(pwd)"
-SCRIPT_HOME="$(cd "$(dirname "$(readlink `which dev`)")" && pwd)"
-
 # Parse commands
 case "$1" in
   create)
