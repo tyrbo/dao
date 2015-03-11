@@ -21,7 +21,7 @@ module Dao
 
       loop do
         begin
-          ip = `docker-machine ip ls-dev`.strip # gross.
+          ip = `docker-machine ip dao-dev`.strip # gross.
           old_ports = servers.map(&:port)
           mappings = Dao::PortMapper.create(ip, containers.matching)
 
