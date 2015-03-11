@@ -65,11 +65,7 @@ if [ ! -d $HOME/.dao ]; then
 fi
 
 if not_installed 'dao'; then
-  ln -s ~/.dao/bin/dao /usr/local/bin/dao
-fi
-
-if not_installed 'daod'; then
-  ln -s ~/.dao/bin/daod /usr/local/bin/daod
+  ln -s ~/.dao/scripts/dao /usr/local/bin/dao
 fi
 
 sudo rm -f /etc/resolver/dao ~/Library/LaunchAgents/cx.dao.daod.plist
