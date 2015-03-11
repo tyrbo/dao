@@ -6,34 +6,34 @@ SCRIPT_HOME="$(cd "$(dirname "$(readlink `which dao`)")" && pwd)"
 # Parse commands
 case "$1" in
   create)
-    docker-machine create --driver virtualbox ls-dev
-    docker-machine ssh ls-dev sudo "sed -r \"s/EXTRA_ARGS='(.*?)'/EXTRA_ARGS='\1 --bip 10.100.200.1\/24'/\" /var/lib/boot2docker/profile > tmp && sudo mv tmp /var/lib/boot2docker/profile"
-    docker-machine stop ls-dev
-    docker-machine start ls-dev
+    docker-machine create --driver virtualbox dao-dev
+    docker-machine ssh dao-dev sudo "sed -r \"s/EXTRA_ARGS='(.*?)'/EXTRA_ARGS='\1 --bip 10.100.200.1\/24'/\" /var/lib/boot2docker/profile > tmp && sudo mv tmp /var/lib/boot2docker/profile"
+    docker-machine stop dao-dev
+    docker-machine start dao-dev
     ;;
 
   start)
-    docker-machine start ls-dev
+    docker-machine start dao-dev
     ;;
 
   stop)
-    docker-machine stop ls-dev
+    docker-machine stop dao-dev
     ;;
 
   kill)
-    docker-machine kill ls-dev
+    docker-machine kill dao-dev
     ;;
 
   rm)
-    docker-machine rm ls-dev
+    docker-machine rm dao-dev
     ;;
 
   ssh)
-    docker-machine ssh ls-dev
+    docker-machine ssh dao-dev
     ;;
 
   env)
-    docker-machine env ls-dev
+    docker-machine env dao-dev
     ;;
 
   update)
