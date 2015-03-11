@@ -68,6 +68,10 @@ if not_installed 'dao'; then
   ln -s ~/.dao/scripts/dao /usr/local/bin/dao
 fi
 
+if not_installed 'daod'; then
+  ln -s ~/.dao/bin/daod /usr/local/bin/daod
+fi
+
 sudo rm -f /etc/resolver/dao ~/Library/LaunchAgents/cx.dao.daod.plist
 sudo ln -s ~/.dao/other/dao.firewall /etc/resolver/dao
 #ln -s ~/.dao/other/cx.dao.daod.plist ~/Library/LaunchAgents/cx.dao.daod.plist
