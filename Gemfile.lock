@@ -3,6 +3,7 @@ PATH
   specs:
     dao (0.0.1)
       docker-api (~> 1.17)
+      puma
       rack (~> 1.6)
       rack-proxy (~> 0.5)
       rubydns (~> 1.0)
@@ -10,7 +11,6 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    archive-tar-minitar (0.5.2)
     celluloid (0.16.0)
       timers (~> 4.0.0)
     celluloid-io (0.16.2)
@@ -18,11 +18,10 @@ GEM
       nio4r (>= 1.1.0)
     coderay (1.1.0)
     diff-lcs (1.2.5)
-    docker-api (1.19.0)
-      archive-tar-minitar
+    docker-api (1.20.0)
       excon (>= 0.38.0)
       json
-    excon (0.44.3)
+    excon (0.44.4)
     hitimes (1.2.2)
     json (1.8.2)
     method_source (0.8.2)
@@ -31,6 +30,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    puma (2.11.1)
+      rack (>= 1.1, < 2.0)
     rack (1.6.0)
     rack-proxy (0.5.17)
       rack

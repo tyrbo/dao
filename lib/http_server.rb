@@ -1,6 +1,7 @@
 require 'rack'
 require 'thread'
 require 'forwarder'
+require 'rack/handler/puma'
 
 module Dao
   class HTTPServer
@@ -11,7 +12,7 @@ module Dao
     end
 
     def start
-      @thread = Thread.new { Rack::Handler::WEBrick.run Dao::Forwarder.new, Port: port }
+      @thread = Thread.new { Rack::Handler::Puma.run Dao::Forwarder.new, Port: port }
       self
     end
 
