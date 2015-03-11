@@ -1,0 +1,75 @@
+#!/bin/bash
+set -e
+
+not_installed () {
+  ! hash $1 &> /dev/null;
+}
+
+# Install homebrew if not installed
+if not_installed 'brew'; then
+  echo "Installing homebrew..."
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+# Update homebrew recipes
+echo "Updating homebrew recipes..."
+brew update
+
+# Install homebrew cask
+if not_installed 'brew-cask'; then
+  brew install caskroom/cask/brew-cask
+fi
+
+# Install vagrant and virtualbox
+if not_installed 'VirtualBox'; then
+  echo "Installing virtualbox..."
+  brew cask install virtualbox
+fi
+
+if not_installed 'vagrant'; then
+  echo "Installing vagrant..."
+  brew cask install vagrant
+fi
+
+# Install git
+if not_installed 'git'; then
+  echo "Installing git..."
+  brew install git
+fi
+
+# Install docker
+if not_installed 'docker'; then
+  echo "Installing docker..."
+  brew install docker
+fi
+
+# Install docker machine
+if not_installed 'docker-machine'; then
+  echo "Installing docker machine..."
+  curl -sL https://github.com/docker/machine/releases/download/v0.1.0/docker-machine_darwin-amd64 > /usr/local/bin/docker-machine
+  chmod a+x /usr/local/bin/docker-machine
+fi
+
+# Install docker compose
+if not_installed 'docker-compose'; then
+  echo "Installing docker compose..."
+  brew install --ignore-dependencies docker-compose
+fi
+
+# Check out the repo
+cd ~
+if [ ! -d $HOME/.dao ]; then
+  git clone git@github.com:tyrbo/dao .dao
+  cd ~/.dao
+  bundle install
+fi
+
+if not_installed 'dao'; then
+  ln -s ~/.dao/bin/dao /usr/local/bin/dao
+fi
+
+sudo rm -f /etc/resolver/dao ~/Library/LaunchAgents/cx.dao.daod.plist
+sudo ln -s ~/.dao/other/dao.firewall /etc/resolver/dao
+#ln -s ~/.dao/other/cx.dao.daod.plist ~/Library/LaunchAgents/cx.dao.daod.plist
+
+#launchctl load ~/Library/LaunchAgents/cx.dao.daod.plist
