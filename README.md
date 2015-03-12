@@ -21,7 +21,7 @@ This installs the following:
 * Docker Compose
 * Docker Machine
 
-The script does it's best to only install what's necessary.
+The script attempts to only install what is necessary.
 
 It then clones down this repo, uses bundler to install the required gems, and sets up a few symlinks for ease of use. **It is expected that Ruby is already installed.**
 
