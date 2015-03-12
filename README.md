@@ -66,6 +66,8 @@ Docker Compose gives you the option specify both a host port and container port 
 
 It is highly recommended to only set the container port, and to allow the host port to be randomized. Since any number of web applications can be supported simultaneously through dao. This should minimize or eliminate port conflicts.
 
+Your service will always be available on the container port. If your container port is `3000`, even though the randomized port may be `49175`, the proxy will listen for requests at http://myproject.dao:3000.
+
 # Todo
 
 * Starting daod manually is a pain. Ideally, this will be automatically started after `dao create` or `dao start`, but the environment variables are a bit of a pain.
