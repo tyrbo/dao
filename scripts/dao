@@ -3,6 +3,18 @@ set -e
 
 SCRIPT_HOME="$(cd "$(dirname "$(readlink `which dao`)")" && pwd)"
 
+set_env () {
+  if [[ "$SHELL" =~ .*fish ]]; then
+    dao env | source -
+  else
+    $(dao env)
+  fi
+}
+
+start_daod () {
+  pgrep -f 'daod' || daod
+}
+
 # Parse commands
 case "$1" in
   create)
@@ -10,12 +22,14 @@ case "$1" in
     docker-machine ssh dao-dev sudo "sed -r \"s/EXTRA_ARGS='(.*?)'/EXTRA_ARGS='\1 --bip 10.100.200.1\/24'/\" /var/lib/boot2docker/profile > tmp && sudo mv tmp /var/lib/boot2docker/profile"
     docker-machine stop dao-dev
     docker-machine start dao-dev
-    pgrep -f 'daod' || daod
+    #set_env
+    #start_daod
     ;;
 
   start)
     docker-machine start dao-dev
-    pgrep -f 'daod' || daod
+    #set_env
+    #start_daod
     ;;
 
   stop)
