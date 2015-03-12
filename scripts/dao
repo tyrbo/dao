@@ -10,10 +10,12 @@ case "$1" in
     docker-machine ssh dao-dev sudo "sed -r \"s/EXTRA_ARGS='(.*?)'/EXTRA_ARGS='\1 --bip 10.100.200.1\/24'/\" /var/lib/boot2docker/profile > tmp && sudo mv tmp /var/lib/boot2docker/profile"
     docker-machine stop dao-dev
     docker-machine start dao-dev
+    pgrep -f 'daod' || daod
     ;;
 
   start)
     docker-machine start dao-dev
+    pgrep -f 'daod' || daod
     ;;
 
   stop)

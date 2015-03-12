@@ -5,4 +5,5 @@ $LOAD_PATH.unshift(lib) if File.directory?(lib) && !$LOAD_PATH.include?(lib)
 
 require 'dao'
 
+Process.daemon
 Dao::Base.new.run

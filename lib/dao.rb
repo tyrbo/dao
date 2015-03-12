@@ -21,7 +21,7 @@ module Dao
 
       loop do
         begin
-          ip = `docker-machine ip dao-dev`.strip # gross.
+          ip = get_ip_from_vm('dao-dev') || exit!
           old_ports = servers.map(&:port)
           mappings = Dao::PortMapper.create(ip, containers.matching)
 
@@ -44,6 +44,14 @@ module Dao
           puts e
           sleep 15
         end
+      end
+    end
+
+    def get_ip_from_vm(name)
+      ip = `docker-machine ip #{name}`.strip
+
+      if ip =~ /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/
+        ip
       end
     end
   end
