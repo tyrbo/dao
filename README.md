@@ -1,6 +1,6 @@
 # Dao
 
-Dao is a tool meant to be used with Docker and Docker Compose. Dao scans running compose services and provides a proxying service on easy to remember hosts. Instead of http://192.168.100.100:49157, your web services will be available at friendlier URLs, like [http://mproject.dao:3000.
+Dao is a tool meant to be used with Docker and Docker Compose. Dao scans running compose services and provides a proxying service on easy to remember hosts. Instead of http://192.168.100.100:49157, your web services will be available at friendlier URLs, like http://mproject.dao:3000.
 
 _Dao is a work in progress. Some things might not work properly or as expected._
 
