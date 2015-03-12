@@ -8,7 +8,7 @@ _Dao is a work in progress. Some things might not work properly or as expected._
 
 Installing Dao is easy.
 
-In a terminal, execute ```curl https://raw.githubusercontent.com/tyrbo/dao/master/scripts/install | bash```.
+In a terminal, execute `curl https://raw.githubusercontent.com/tyrbo/dao/master/scripts/install | bash`.
 
 This installs the following:
 
@@ -29,7 +29,7 @@ It then clones down this repo, uses bundler to install the required gems, and se
 
 After installation, the first step is to create a virtual machine. This is accomplished with a single command.
 
-```dao create```
+`dao create`
 
 # Setting Environment Variables
 
@@ -49,7 +49,7 @@ daod will automatically exit if the virtual machine stops running, so you'll nee
 
 Again, this is accomplished with a single command. Don't worry if you don't see any output, that's completely normal.
 
-```daod```
+`daod`
 
 # Docker Compose and Naming Conventions
 
