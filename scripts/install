@@ -62,6 +62,7 @@ if [ ! -d $HOME/.dao ]; then
   git clone git@github.com:tyrbo/dao .dao
   cd ~/.dao
   bundle install
+  mkdir .services
 fi
 
 if not_installed 'dao'; then
