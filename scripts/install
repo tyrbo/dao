@@ -20,15 +20,10 @@ if not_installed 'brew-cask'; then
   brew install caskroom/cask/brew-cask
 fi
 
-# Install vagrant and virtualbox
+# Install virtualbox
 if not_installed 'VirtualBox'; then
   echo "Installing virtualbox..."
   brew cask install virtualbox
-fi
-
-if not_installed 'vagrant'; then
-  echo "Installing vagrant..."
-  brew cask install vagrant
 fi
 
 # Install git
