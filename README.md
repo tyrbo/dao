@@ -28,15 +28,15 @@ It then clones down this repo, uses bundler to install the required gems, and se
 
 After installation, the first step is to create a virtual machine. This is accomplished with a single command.
 
-`dao create`
+`dao vm create`
 
 # Setting Environment Variables
 
 Once the virtual machine has been created, or if it's been stopped and started at any point, it is ideal to set (or reset) your environment variables. Again, this can be accomplished with a single command.
 
-**Bash:** `$(dao env)`
+**Bash/Zsh:** `$(dao vm env)`
 
-**Fish:** `dao env | source -`
+**Fish:** `dao vm env | source -`
 
 These commands should be ran in any terminal window you expect to interact with Docker, and must also be ran before starting daod.
 
