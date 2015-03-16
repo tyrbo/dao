@@ -15,7 +15,6 @@ This installs the following:
 * Homebrew
 * Brew Cask
 * VirtualBox
-* Vagrant
 * Git
 * Docker
 * Docker Compose
