@@ -56,4 +56,7 @@ case "$1" in
     cd $SCRIPT_HOME
     git pull
     ;;
+  *)
+    docker-compose $@
+    ;;
 esac
