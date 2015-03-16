@@ -15,47 +15,34 @@ start_daod () {
   pgrep -f 'daod' || daod
 }
 
+create_vm () {
+  docker-machine create --driver virtualbox dao-dev
+  docker-machine ssh dao-dev sudo "sed -r \"s/EXTRA_ARGS='(.*?)'/EXTRA_ARGS='\1 --bip 10.100.200.1\/24'/\" /var/lib/boot2docker/profile > tmp && sudo mv tmp /var/lib/boot2docker/profile"
+  docker-machine stop dao-dev
+  docker-machine start dao-dev
+  #set_env
+  #start_daod
+}
+
 # Parse commands
 case "$1" in
-  create)
-    docker-machine create --driver virtualbox dao-dev
-    docker-machine ssh dao-dev sudo "sed -r \"s/EXTRA_ARGS='(.*?)'/EXTRA_ARGS='\1 --bip 10.100.200.1\/24'/\" /var/lib/boot2docker/profile > tmp && sudo mv tmp /var/lib/boot2docker/profile"
-    docker-machine stop dao-dev
-    docker-machine start dao-dev
-    #set_env
-    #start_daod
-    ;;
+  vm)
+    case "$2" in
+      create)
+        create_vm
+        ;;
 
-  start)
-    docker-machine start dao-dev
-    #set_env
-    #start_daod
-    ;;
-
-  stop)
-    docker-machine stop dao-dev
-    ;;
-
-  kill)
-    docker-machine kill dao-dev
-    ;;
-
-  rm)
-    docker-machine rm dao-dev
-    ;;
-
-  ssh)
-    docker-machine ssh dao-dev
-    ;;
-
-  env)
-    docker-machine env dao-dev
+      *)
+        docker-machine ${@:2} dao-dev
+        ;;
+    esac
     ;;
 
   update)
     cd $SCRIPT_HOME
     git pull
     ;;
+
   *)
     docker-compose $@
     ;;
