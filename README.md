@@ -38,13 +38,13 @@ Once the virtual machine has been created, or if it's been stopped and started a
 
 **Fish:** `dao vm env | source -`
 
-These commands should be ran in any terminal window you expect to interact with Docker, and must also be ran before starting daod.
+These commands should be run in any terminal window where you expect to interact with Docker, and must also be run before starting daod.
 
 # Start daod
 
-Once the machine is running, and you've set your environment variables, it's time to start daod.
-daod is responsible for scanning running containers, and setting up the magical hosts mentioned above.
-daod will automatically exit if the virtual machine stops running, so you'll need to start it again if that occurs.
+Once the machine is running, and you've set your environment variables, it's time to start **daod**.
+**daod** is responsible for scanning running containers, and setting up the magical hosts mentioned above.
+**daod** will automatically exit if the virtual machine stops running, so you'll need to start it again if that occurs.
 
 Again, this is accomplished with a single command. Don't worry if you don't see any output, that's completely normal.
 
@@ -52,12 +52,11 @@ Again, this is accomplished with a single command. Don't worry if you don't see 
 
 # Docker Compose and Naming Conventions
 
-There is plenty of information available on Docker Compose. The official docs are available here: https://docs.docker.com/compose/.
+There is plenty of information available on Docker Compose; check out the official documentation [here](https://docs.docker.com/compose/).
 
 Docker Compose names containers using the base folder of your project. If your project resides in `/Users/Dao/MyProject`, then Docker Compose would use names similar to `myproject_servicename_1`.
 
-Dao uses these names to determine the host your project should be available at. In the above case, http://myproject.dao would be the 
-end result.
+Dao uses these names to determine the host your project should be available at. In the above case, `http://myproject.dao` would be the end result.
 
 # Ports
 
@@ -71,3 +70,7 @@ Your service will always be available on the container port. If your container p
 
 * Starting daod manually is a pain. Ideally, this will be automatically started after `dao create` or `dao start`, but the environment variables are a bit of a pain.
 * Non-web ports will be listened on. If your `docker-compose.yml` file runs MySQL, and publicly exposes port 3306, a web proxy will be running on that port. This is unnecessary, and dao will soon™ have a better way of handling this problem through explicitly declaring what services to listen for, on a per-project basis.
+
+## Contributors
+[Jonmichael Chambers](https://github.com/tyrbo)
+[Cory Flanigan](https://github.com/seeflanigan)
