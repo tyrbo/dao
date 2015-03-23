@@ -8,7 +8,9 @@ _Dao is a work in progress. Some things might not work properly or as expected._
 
 Installing Dao is easy.
 
-In a terminal, execute `curl https://raw.githubusercontent.com/tyrbo/dao/master/scripts/install | bash`.
+In a terminal, execute 
+
+    curl https://raw.githubusercontent.com/tyrbo/dao/master/scripts/install | bash
 
 This installs the following:
 
