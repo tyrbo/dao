@@ -42,6 +42,22 @@ Once the virtual machine has been created, or if it's been stopped and started a
 
 These commands should be run in any terminal window where you expect to interact with Docker, and must also be run before starting daod.
 
+# Here is a function
+that you can add to your shell config
+to start and configure the Docker Host vm and environment if it is not running
+and configure appropriate environment variables when the host VM is running
+
+    function setup_docker () {
+      # Export env vars for Docker VM
+      if [[ $(dao vm ip) =~ "not running" ]]; then
+        (dao vm start &>/dev/null && $(dao vm env)) &
+      else
+        $(dao vm env)
+      fi
+    }
+
+Add `setup_docker` to your `~/.bash_profile` or `~/.zshrc` to automatically start and load the Docker environment for new shells
+
 # Start daod
 
 Once the machine is running, and you've set your environment variables, it's time to start **daod**.
