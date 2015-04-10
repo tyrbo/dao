@@ -54,7 +54,7 @@ fi
 # Check out the repo
 cd ~
 if [ ! -d $HOME/.dao ]; then
-  git clone git@github.com:tyrbo/dao .dao
+  git clone https://github.com/tyrbo/dao.git .dao
   cd ~/.dao
   bundle install
 fi
