@@ -41,8 +41,7 @@ fi
 # Install docker machine
 if not_installed 'docker-machine'; then
   echo "Installing docker machine..."
-  curl -sL https://github.com/docker/machine/releases/download/v0.1.0/docker-machine_darwin-amd64 > /usr/local/bin/docker-machine
-  chmod a+x /usr/local/bin/docker-machine
+  brew install docker-machine
 fi
 
 # Install docker compose
@@ -54,7 +53,7 @@ fi
 # Check out the repo
 cd ~
 if [ ! -d $HOME/.dao ]; then
-  git clone git@github.com:tyrbo/dao .dao
+  git clone https://github.com/tyrbo/dao.git .dao
   cd ~/.dao
   bundle install
 fi
