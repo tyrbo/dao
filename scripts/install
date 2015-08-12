@@ -66,8 +66,10 @@ if not_installed 'daod'; then
   ln -s ~/.dao/bin/daod /usr/local/bin/daod
 fi
 
-sudo rm -f /etc/resolver/dao ~/Library/LaunchAgents/cx.dao.daod.plist
-sudo ln -s ~/.dao/other/dao.firewall /etc/resolver/dao
+# This can cause failures on first installation, because /etc/resolver/dao does not exist
+# May need to wrap it in a conditional, or remove it until Dao proxy functionality is working
+# sudo rm -f /etc/resolver/dao ~/Library/LaunchAgents/cx.dao.daod.plist
+# sudo ln -s ~/.dao/other/dao.firewall /etc/resolver/dao
 #ln -s ~/.dao/other/cx.dao.daod.plist ~/Library/LaunchAgents/cx.dao.daod.plist
 
 #launchctl load ~/Library/LaunchAgents/cx.dao.daod.plist
